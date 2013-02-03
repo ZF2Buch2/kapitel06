@@ -1,4 +1,7 @@
-kapitel06
-=========
+ZF2 Buch - Kapitel 6
+=====================
 
-Projektdateien für Kapitel 6
+Hier werden in Kürze die Projektdateien für das Kapitel 6 vom Buch
+"Zend Framework 2 - Von den Grundlagen bis zur fertigen Anwendung"
+(ISBN 978-3-8273-2994-3) von Ralf Eggert aus dem Addison-Wesley 
+Verlag veröffentlicht. 
