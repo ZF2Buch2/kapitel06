@@ -1,0 +1,89 @@
+<?php 
+/**
+ * ZF2 Buch Kapitel 6
+ * 
+ * Das Buch "Zend Framework 2 - Von den Grundlagen bis zur fertigen Anwendung"
+ * von Ralf Eggert ist im Addison-Wesley Verlag erschienen. 
+ * ISBN 978-3-8273-2994-3
+ * 
+ * @package    Application
+ * @author     Ralf Eggert <r.eggert@travello.de>
+ * @copyright  Alle Listings sind urheberrechtlich geschützt!
+ * @link       http://www.zendframeworkbuch.de/ und http://www.awl.de/2994
+ */
+
+/**
+ * Listing 6.20 view script
+ * 
+ * @package    Application
+ */
+?>
+<div class="row">
+<div class="span9">
+<h1>Listing 6.20</h1>
+<h3><code>Zend\Di</code> mit kompilierter Definitionsliste verwenden</h3>
+<pre>
+&lt;?php 
+// namespaces
+use Zend\Debug\Debug;
+use Zend\Di\Di;
+use Zend\Di\DefinitionList;
+use Zend\Di\Definition\ArrayDefinition;
+use Zend\Di\Definition\RuntimeDefinition;
+use Zend\Math\Rand;
+
+// configure definition list
+$definitionList = new DefinitionList(array(
+    new ArrayDefinition(include LUIGI_ROOT . '/data/di/Pizza-definition.php'),
+    new RuntimeDefinition(),
+));
+
+// configure dependency injection container
+$di = new Di($definitionList);
+
+// get pizza melon
+$pizzaMelon = $di->get(
+    'Pizza\Entity\PizzaMelon', 
+    array(
+        'id'    => Rand::getInteger(100, 199),
+        'name'  => 'Pizza Melone',
+        'price' => round(Rand::getFloat() + 6, 2),
+    )
+);
+
+// output pizza
+Debug::dump($pizzaMelon);
+</pre>
+<h3>Ausgabe</h3>
+<?php 
+use Zend\Debug\Debug;
+use Zend\Di\Di;
+use Zend\Di\DefinitionList;
+use Zend\Di\Definition\ArrayDefinition;
+use Zend\Di\Definition\RuntimeDefinition;
+use Zend\Math\Rand;
+
+// configure definition list
+$definitionList = new DefinitionList(array(
+    new ArrayDefinition(include LUIGI_ROOT . '/data/di/Pizza-definition.php'),
+    new RuntimeDefinition(),
+));
+
+// configure dependency injection container
+$di = new Di($definitionList);
+
+// get pizza melon
+$pizzaMelon = $di->get(
+    'Pizza\Entity\PizzaMelon', 
+    array(
+        'id'    => Rand::getInteger(100, 199),
+        'name'  => 'Pizza Melone',
+        'price' => round(Rand::getFloat() + 6, 2),
+    )
+);
+
+// output pizza
+Debug::dump($pizzaMelon);
+?>
+</div>
+</div>

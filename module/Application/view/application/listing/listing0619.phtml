@@ -1,0 +1,103 @@
+<?php 
+/**
+ * ZF2 Buch Kapitel 6
+ * 
+ * Das Buch "Zend Framework 2 - Von den Grundlagen bis zur fertigen Anwendung"
+ * von Ralf Eggert ist im Addison-Wesley Verlag erschienen. 
+ * ISBN 978-3-8273-2994-3
+ * 
+ * @package    Application
+ * @author     Ralf Eggert <r.eggert@travello.de>
+ * @copyright  Alle Listings sind urheberrechtlich geschützt!
+ * @link       http://www.zendframeworkbuch.de/ und http://www.awl.de/2994
+ */
+
+/**
+ * Listing 6.19 view script
+ * 
+ * @package    Application
+ */
+?>
+<div class="row">
+<div class="span9">
+<h1>Listing 6.19</h1>
+<h3>Ausschnitt aus der kompilierten Definitionliste für <code>Zend\Di</code></h3>
+<pre>
+&lt;?php 
+array( 
+    [...]
+  
+    'Pizza\Entity\PizzaMelon' => array(
+        'supertypes'   => array(),
+        'instantiator' => '__construct',
+        'methods'      => array(
+            '__construct' => true,
+            'setId' => false,
+            'setName' => false,
+            'setPrice' => false,
+        ),
+        'parameters' => array(
+            '__construct' => array(
+                'Pizza\Entity\PizzaMelon::__construct:0' => array(
+                    0 => 'crust',
+                    1 => 'Pizza\Crust\WheatFlour',
+                    2 => true,
+                    3 => NULL,
+                ),
+                'Pizza\Entity\PizzaMelon::__construct:1' => array(
+                    0 => 'tomatoStodge',
+                    1 => 'Pizza\Topping\TomatoStodge',
+                    2 => true,
+                    3 => NULL,
+                ),
+                'Pizza\Entity\PizzaMelon::__construct:2' => array(
+                    0 => 'cheese',
+                    1 => 'Pizza\Topping\Cheese',
+                    2 => true,
+                    3 => NULL,
+                ),
+                'Pizza\Entity\PizzaMelon::__construct:3' => array(
+                    0 => 'melon',
+                    1 => 'Pizza\Topping\Melon',
+                    2 => true,
+                    3 => NULL,
+                ),
+                'Pizza\Entity\PizzaMelon::__construct:4' => array(
+                    0 => 'salami',
+                    1 => 'Pizza\Topping\Salami',
+                    2 => true,
+                    3 => NULL,
+                ),
+            ),
+            'setId' => array(
+                'Pizza\Entity\PizzaMelon::setId:0' => array(
+                    0 => 'id',
+                    1 => NULL,
+                    2 => true,
+                    3 => NULL,
+                ),
+            ),
+            'setName' => array(
+                'Pizza\Entity\PizzaMelon::setName:0' => array(
+                    0 => 'name',
+                    1 => NULL,
+                    2 => true,
+                    3 => NULL,
+                ),
+            ),
+            'setPrice' => array(
+                'Pizza\Entity\PizzaMelon::setPrice:0' => array(
+                    0 => 'price',
+                    1 => NULL,
+                    2 => true,
+                    3 => NULL,
+                ),
+            ),
+        ),
+    ),
+    
+    [...]
+);
+</pre>
+</div>
+</div>

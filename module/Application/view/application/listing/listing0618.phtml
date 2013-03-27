@@ -1,0 +1,66 @@
+<?php 
+/**
+ * ZF2 Buch Kapitel 6
+ * 
+ * Das Buch "Zend Framework 2 - Von den Grundlagen bis zur fertigen Anwendung"
+ * von Ralf Eggert ist im Addison-Wesley Verlag erschienen. 
+ * ISBN 978-3-8273-2994-3
+ * 
+ * @package    Application
+ * @author     Ralf Eggert <r.eggert@travello.de>
+ * @copyright  Alle Listings sind urheberrechtlich geschützt!
+ * @link       http://www.zendframeworkbuch.de/ und http://www.awl.de/2994
+ */
+
+/**
+ * Listing 6.18 view script
+ * 
+ * @package    Application
+ */
+?>
+<div class="row">
+<div class="span9">
+<h1>Listing 6.18</h1>
+<h3>Definitionsliste für <code>Zend\Di</code> automatisch compilieren</h3>
+<pre>
+&lt;?php 
+// namespaces
+use Zend\Debug\Debug;
+use Zend\Di\Definition\CompilerDefinition;
+
+// configure dependency injection container
+$diCompiler = new CompilerDefinition();
+$diCompiler->addDirectory(LUIGI_ROOT . '/module/Pizza/src/Pizza/');
+$diCompiler->compile();
+
+// write definition list
+file_put_contents(
+    LUIGI_ROOT . '/data/di/Pizza-definition.php',
+    '&lt?php return ' . var_export($diCompiler->toArrayDefinition()->toArray(), true) . ';'
+);
+
+// output definition list
+Debug::dump(include LUIGI_ROOT . '/data/di/Pizza-definition.php');
+</pre>
+<h3>Ausgabe</h3>
+<?php 
+// namespaces
+use Zend\Debug\Debug;
+use Zend\Di\Definition\CompilerDefinition;
+
+// configure dependency injection container
+$diCompiler = new CompilerDefinition();
+$diCompiler->addDirectory(LUIGI_ROOT . '/module/Pizza/src/Pizza/');
+$diCompiler->compile();
+
+// write definition list
+file_put_contents(
+    LUIGI_ROOT . '/data/di/Pizza-definition.php',
+    '<?php return ' . var_export($diCompiler->toArrayDefinition()->toArray(), true) . ';'
+);
+
+// output definition list
+Debug::dump(include LUIGI_ROOT . '/data/di/Pizza-definition.php');
+?>
+</div>
+</div>
